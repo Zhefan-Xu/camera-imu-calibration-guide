@@ -6,6 +6,10 @@
  - **Extrinsic Matrix**: The matrix that transform 3D points from other coordinate frame to camera 3D coodinate frame. 
  - **Distortion Parameters**: TODO
 
+#### Calibration Terminology:
+ - **Checkerboard**:
+ - **Aprilgrid**:
+
 #### Camera Calibration:
  - **Single camera calibration**: To find intrinsic matrix and distortion parameters.
  - **Multiple-camera calibration**: In addition to instrinsic and distortion, we also want to obtain extrinsic matrix.
