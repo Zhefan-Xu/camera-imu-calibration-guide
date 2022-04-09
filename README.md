@@ -8,8 +8,18 @@
 
 #### Calibration Terminology:
  - **Checkerboard**:
+   - *Target row/column*: Number of INNER boxes in row/column.
+   - *Size*: Size of each boxes.
+ 
+     <img src="https://user-images.githubusercontent.com/55560905/162593666-e2a997c7-1dc2-4203-aaf4-72dbb8b5e61b.png" width="300">
+ 
  - **Aprilgrid**:
-
+   - *Target row/colum*: Number of INNER boxes in row/column.
+   - *Size*: Size of each boxes.
+   - *Spacing*: Distance between two boxes in mm. (sometimes it is represented by a ratio).
+   
+     <img src="https://user-images.githubusercontent.com/55560905/162593770-031a92b6-2994-4da0-9823-dd569ca4de69.png" width="300">
+   
 #### Camera Calibration:
  - **Single camera calibration**: To find intrinsic matrix and distortion parameters.
  - **Multiple-camera calibration**: In addition to instrinsic and distortion, we also want to obtain extrinsic matrix.
