@@ -6,7 +6,7 @@
  - **Extrinsic Matrix**: The matrix that transform 3D points from other coordinate frame to camera 3D coodinate frame. Note: Usually this refers to the transform between camera and camera (in multiple-camera system) or transform between camera and IMU (in visual inertial system). This is represented by the transformation matrix (4x4, rotation and translation).
  - **Distortion Parameters**: Camera lens can cause distortion in image. More details on parameters about [camera distortion](https://ori.codes/artificial-intelligence/camera-calibration/camera-distortions/).
 
-#### Calibration Terminology:
+#### Calibration Target:
  - **Checkerboard**:
    - *Target row/column*: Number of INNER boxes in row/column.
    - *Size*: Size of each boxes.
