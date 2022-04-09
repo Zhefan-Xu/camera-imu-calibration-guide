@@ -32,8 +32,16 @@ Camera calibration is a process to find the camera intrinsic, extrinsic, and dis
 #### 1. Install Kalibr from ETH Autonomous System Lab (ASL).
   [Kalibr](https://github.com/ethz-asl/kalibr) is a very useful calibration tool for multiple-camera and camera-IMU calibration. Note: Follow their instructions and build the packages in your Ubuntu 18.04 (ROS Melodic) or Ubuntu 16.04 (ROS Kinetic) system.
 
-#### 2. Record rosbag for camera intrinstic and extrinsic calibration at 4-5 Hz.
+#### 2. Generate Calibration Target:
+You can download calibration target anywhere or generate it from [Kalibr](https://github.com/ethz-asl/kalibr) by running:
+```
+rosrun kalibr kalibr_create_target_pdf --type apriltag --nx 6 --ny 6 --tsize 0.02 --tspace -0.3 # 6x6 apriltag with tag size 0.02m and spacing ratio 0.3.
+```
+Print this pdf with its actual size and remember its parameters.
+
+#### 3. Record rosbag for camera intrinstic and extrinsic calibration at 4-5 Hz.
 Take [Intel Realsense D435i](https://www.intelrealsense.com/depth-camera-d435i/) as an example:
+
 If you want to calibrate its stereo camera: 
 ```
 roslaunch realsense2_camera rs_d435i.launch # check the launch file in this repo, you will need to turn off the projector and also ajust the image resolution.
@@ -44,6 +52,17 @@ rosrun topic_tools throttle messages /camera/infra2/image_rect_raw 5.0 /camera1 
 
 # start recording
 rosbag record -O stereo_camera_calibration.bag /camera1 /camera2
+```
+
+Or if you want to calibrate its monocular camera:
+```
+roslaunch realsense2_camera rs_d435i.launch # check the launch file in this repo, you will need to turn off the projector and also ajust the image resolution.
+
+# we need to throttle message frequency to 4-5 Hz
+rosrun topic_tools throttle messages /camera/color/image_raw 5.0 /camera_color # throttle color image frequency and republish in /camera_color
+
+# start recording
+rosbag record -O color_camera_calibration.bag /camera_color
 ```
 Then, follow the video in [Kalibr](https://github.com/ethz-asl/kalibr) for how to collect data.
 
