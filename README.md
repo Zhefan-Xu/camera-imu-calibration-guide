@@ -66,10 +66,27 @@ rosbag record -O color_camera_calibration.bag /camera_color
 ```
 Then, follow the video in [Kalibr](https://github.com/ethz-asl/kalibr) for how to collect data.
 
-Camera calibration:
+#### 4. Calibrate camera with collected rosbag.
+Input/Requirements:
+  - Rosbag: the image data you collected in the previous step.
+  - Data Topic: image message topic names.
+  - Camera Model: your camera lens model.
+  - Calibration Target YAML file: your calibration target parameters. Please check this repo for examples.
+  - Rosbag time interval.
+  - Synchronize time: if too big, it causes confusions in stereo image matching. if two small, it causes no image matching.
 ```
 rosrun kalibr kalibr_calibrate_cameras --bag camera_calibration.bag --topics /camera1 /camera2 --models pinhole-radtan pinhole-radtan --target apriltag.yaml --bag-from-to 0 75  --approx-sync 0.1
 ```
+After this step, you should get the camera intrinsic and extrinsic parameters.
+
+#### 5. IMU Calibration.
+If you are using D435i's IMU, you have an extra step to do: calibrate IMU and write the data into the camera device. It's very easy and important. You just need to follow the official instruction [PDF](https://www.intelrealsense.com/wp-content/uploads/2019/07/Intel_RealSense_Depth_D435i_IMU_Calibration.pdf).
+Necessary tools and code can be found on [librealsense github](https://github.com/IntelRealSense/librealsense).
+
+Now, we need to estimate xxx for IMU:
+
+
+#### 6. Camera-IMU Calibration.
 
 Camera-IMU calibration:
 ```
