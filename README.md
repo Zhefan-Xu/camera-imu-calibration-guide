@@ -45,6 +45,7 @@ rosrun topic_tools throttle messages /camera/infra2/image_rect_raw 5.0 /camera1 
 # start recording
 rosbag record -O stereo_camera_calibration.bag /camera1 /camera2
 ```
+Then, follow the video in [Kalibr](https://github.com/ethz-asl/kalibr) for how to collect data.
 
 Camera calibration:
 ```
