@@ -1,4 +1,4 @@
-# VIO_SLAM
+# Camera-IMU Calibration Guide
 ## I. Basics of Camera Calibration:
 Camera calibration is a process to find the camera intrinsic, extrinsic, and distortion parameters of a specific camera. It is very important in the multiple-camera and camera-IMU (visual inertial) system.  
 
