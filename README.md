@@ -42,7 +42,15 @@ Print this pdf with its actual size and write its parameters into this [format](
 #### 3. Record rosbag for camera intrinstic and extrinsic calibration at 4-5 Hz.
 Take [Intel Realsense D435i](https://www.intelrealsense.com/depth-camera-d435i/) as an example:
 
-If you want to calibrate its stereo camera, you need to launch the camera with infrared stereo images (but please turn off the Infrared Projector). Also remember to resize the image size to 640x480. You can find the modified launch file [here](https://github.com/Zhefan-Xu/camera-imu-calibration-guide/blob/main/rs_d435i.launch): 
+If you want to calibrate its stereo camera, you need to launch the camera with infrared stereo images (but please turn off the Infrared Projector). Also remember to resize the image size to 640x480. Below is the image with IR projector on:
+
+![Screenshot from 2022-04-10 15-50-39](https://user-images.githubusercontent.com/55560905/162637326-473fc871-ff19-471d-bea2-fe2bda9d858b.png)
+
+Below is the image with IR projector off. Please check yourself in Rviz:
+
+![Screenshot from 2022-04-10 15-51-20](https://user-images.githubusercontent.com/55560905/162637380-ecc20f1b-034a-4c60-84a5-9c5196aa7c1c.png)
+
+You can find the modified launch file [here](https://github.com/Zhefan-Xu/camera-imu-calibration-guide/blob/main/rs_d435i.launch): 
 ```
 roslaunch realsense2_camera rs_d435i.launch # check the launch file in this repo, you will need to turn off the projector and also ajust the image resolution.
 ```
