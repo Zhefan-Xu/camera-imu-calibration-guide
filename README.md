@@ -37,7 +37,7 @@ You can download calibration target anywhere or generate it from [Kalibr](https:
 ```
 rosrun kalibr kalibr_create_target_pdf --type apriltag --nx 6 --ny 6 --tsize 0.02 --tspace -0.3 # 6x6 apriltag with tag size 0.02m and spacing ratio 0.3.
 ```
-Print this pdf with its actual size and remember its parameters.
+Print this pdf with its actual size and write its parameters into this [format](https://github.com/Zhefan-Xu/camera-imu-calibration-guide/blob/main/apriltag.yaml).
 
 #### 3. Record rosbag for camera intrinstic and extrinsic calibration at 4-5 Hz.
 Take [Intel Realsense D435i](https://www.intelrealsense.com/depth-camera-d435i/) as an example:
