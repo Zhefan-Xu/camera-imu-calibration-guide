@@ -113,7 +113,7 @@ First, record the IMU data for more than 10 minutes while making it stationary. 
 Save the obtained data into this [format](https://github.com/Zhefan-Xu/camera-imu-calibration-guide/blob/main/imu.yaml).
  
 
-#### 6. Camera-IMU Calibration.
+#### 7. Camera-IMU Calibration.
 Finally, we can perform the calibration (This step will take several hours).
 Camera-IMU calibration (stereo):
 ```
