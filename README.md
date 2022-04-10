@@ -88,7 +88,7 @@ Input/Requirements:
   - Rosbag: the image data you collected in the previous step.
   - Data Topic: image message topic names.
   - Camera Model: your camera lens model.
-  - Calibration Target YAML file: your calibration target parameters. Please check this repo for examples.
+  - Calibration Target YAML file: your calibration target parameters. Please check this repo for [examples](https://github.com/Zhefan-Xu/camera-imu-calibration-guide/blob/main/apriltag.yaml).
   - Rosbag time interval.
   - Synchronize time: if too big, it causes confusions in stereo image matching. if two small, it causes no image matching.
 ```
