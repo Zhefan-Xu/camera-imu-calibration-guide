@@ -91,11 +91,15 @@ Input/Requirements:
 ```
 rosrun kalibr kalibr_calibrate_cameras --bag camera_calibration.bag --topics /camera1 /camera2 --models pinhole-radtan pinhole-radtan --target apriltag.yaml --bag-from-to 0 75  --approx-sync 0.1
 ```
-After this step, you should get the camera intrinsic and extrinsic parameters.
+After this step, you should get the camera intrinsic and extrinsic parameters. Save them in your desired place for future usage.
 
 #### 5. IMU Calibration.
 If you are using D435i's IMU, you have an extra step to do: calibrate IMU and write the data into the camera device. It's very easy and important. You just need to follow the official instruction [PDF](https://www.intelrealsense.com/wp-content/uploads/2019/07/Intel_RealSense_Depth_D435i_IMU_Calibration.pdf).
 Necessary tools and code can be found on [librealsense github](https://github.com/IntelRealSense/librealsense).
+
+An esay way to verify your calibration quality is to check the realsense viewer. If the value in x and z axis is close to 0 and y axis is close to 9.8, that means your calibration is okay.
+
+![Screenshot from 2022-04-10 16-00-03](https://user-images.githubusercontent.com/55560905/162637582-218046d8-2697-4444-96e6-0f6fa66beb7f.png)
 
 #### 6. Estimate IMU Noise Model.
 Now, we need to estimate noise model for IMU. You can find some explanation of the parameters [here](https://github.com/ethz-asl/kalibr/wiki/IMU-Noise-Model).
