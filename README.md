@@ -80,6 +80,9 @@ rosbag record -O color_camera_calibration.bag /camera_color
 ```
 Then, follow the video in [Kalibr](https://github.com/ethz-asl/kalibr) for how to collect data.
 
+[![alt text](https://user-images.githubusercontent.com/5337083/44033014-50208b8a-9f09-11e8-8e9a-d7d6d3c69d97.png)](https://m.youtube.com/watch?v=puNXsnrYWTY "imu cam calib")
+
+
 #### 4. Calibrate camera with collected rosbag.
 Input/Requirements:
   - Rosbag: the image data you collected in the previous step.
