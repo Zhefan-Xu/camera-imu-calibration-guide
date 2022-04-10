@@ -26,8 +26,6 @@ Camera calibration is a process to find the camera intrinsic, extrinsic, and dis
  - **Multiple-camera calibration**: In addition tNow, we need to estimate noise model for IMU. You can find some explanation of the parameters here. Use the repo imu_utils which depends on code_utils to obtain the IMU noise model.o instriNow, we need to estimate noise model for IMU. You can find some explanation of the parameters here. Use the repo imu_utils which depends on code_utils to obtain the IMU noise model.nsic and distortion, we also want to obtain extrinsic matrix.
  - **Camera-IMU calibration**: Find the transformation between camera and IMU.
 
-#### d. Camera Model:
- TODO
 
 ## II. Calibration Guide (Camera-IMU calibration)
 
