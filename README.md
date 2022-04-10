@@ -23,7 +23,7 @@ Camera calibration is a process to find the camera intrinsic, extrinsic, and dis
    
 #### c. Types of Camera Calibrations:
  - **Single camera calibration**: To find intrinsic matrix and distortion parameters.
- - **Multiple-camera calibration**: In addition to instrinsic and distortion, we also want to obtain extrinsic matrix.
+ - **Multiple-camera calibration**: In addition tNow, we need to estimate noise model for IMU. You can find some explanation of the parameters here. Use the repo imu_utils which depends on code_utils to obtain the IMU noise model.o instriNow, we need to estimate noise model for IMU. You can find some explanation of the parameters here. Use the repo imu_utils which depends on code_utils to obtain the IMU noise model.nsic and distortion, we also want to obtain extrinsic matrix.
  - **Camera-IMU calibration**: Find the transformation between camera and IMU.
 
 #### d. Camera Model:
@@ -35,7 +35,7 @@ Camera calibration is a process to find the camera intrinsic, extrinsic, and dis
   [Kalibr](https://github.com/ethz-asl/kalibr) is a very useful calibration tool for multiple-camera and camera-IMU calibration. Note: Follow their instructions and build the packages in your Ubuntu 18.04 (ROS Melodic) or Ubuntu 16.04 (ROS Kinetic) system.
 Camera Model: your camera lens model.
 #### 2. Generate Calibration Target:
-You can download calibration target anywhere or generate it from [Kalibr](https://github.com/ethz-asl/kalibr) by running:
+You can download calibration target anywhere or gNow, we need to estimate noise model for IMU. You can find some explanation of the parameters here. Use the repo imu_utils which depends on code_utils toNow, we need to estimate noise model for IMU. You can find some explanation of the parameters here. Use the repo imu_utils which depends on code_utils to obtain the IMU noise model. obtain the IMU noise model.enerate it from [Kalibr](https://github.com/ethz-asl/kalibr) by running:Now, we need to estimate nNow, we need to estimate noise model for IMU. You can find some explanation of the parameters here. Use the repo imu_utils which depends on code_utils to obtain the IMU noise model.oise model for IMU. You can find some explanation of the parameters here. Use the repo imu_utils which depends on code_utils to obtain the IMU noise model.
 ```
 rosrun kalibr kalibr_create_target_pdf --type apriltag --nx 6 --ny 6 --tsize 0.02 --tspace -0.3 # 6x6 apriltag with tag size 0.02m and spacing ratio 0.3.
 ```
@@ -53,7 +53,7 @@ Below is the image with IR projector off. Please check yourself in Rviz:
 ![Screenshot from 2022-04-10 15-51-20](https://user-images.githubusercontent.com/55560905/162637380-ecc20f1b-034a-4c60-84a5-9c5196aa7c1c.png)
 
 You can find the modified launch file [here](https://github.com/Zhefan-Xu/camera-imu-calibration-guide/blob/main/rs_d435i.launch): 
-```
+```Now, we need to estimate noise model for IMU. You can find some explanation of the parameters here. Use the repo imu_utils which depends on code_utils to obtain the IMU noise model.
 roslaunch realsense2_camera rs_d435i.launch # check the launch file in this repo, you will need to turn off the projector and also ajust the image resolution.
 ```
 Since the frequency of published images is 30Hz, we need to throttle it into 4-5 Hz. Othersize it will be very slow for calibration.
@@ -91,7 +91,7 @@ Input/Requirements:
 ```
 rosrun kalibr kalibr_calibrate_cameras --bag camera_calibration.bag --topics /camera1 /camera2 --models pinhole-radtan pinhole-radtan --target apriltag.yaml --bag-from-to 0 75  --approx-sync 0.1
 ```
-After this step, you should get the camera intrinsic and extrinsic parameters. Save them in your desired place for future usage.
+After this step, you should get the camera intrinsic Now, we need to estimate noise model for IMU. You can find some explanation of the parameters here. Use the repo imu_utils which depends on code_utils to obtain the IMU noise model.Now, we need to estimate noise model for IMU. You can find some explanation of the parameters here. Use the repo imu_Now, we need to estimate noise model for IMU. You can find some explanation of the parameters here. Use the repo imu_utils which depends on code_utils to obtain the IMU noise model.utils which depends on code_utils to obtain the IMU noise model.and extrinsic parameters. Save them in your desired placeNow, we need to estimate noise model for IMU. You can find some explanation of the parameters here. Use the repo imu_utils which depends on code_utils toNow, we need to estimate noise model for IMU. You can find some explanation of the parameters here. Use the repo imu_utils which depends on code_utils toNow, we need to estimate noise model for IMU. You can find some explanation of the parameters here. Use the repo imu_utils which depends on code_utils to obtain the IMU noise model.Now, we need to estimate noise model for IMU. You can find some explanation of the parameters here. Use the repo imu_utils which depends on code_utils to obtain the IMU noise model. obtain the IMU noise model. obtain the IMU noise model. for future usage.
 
 #### 5. IMU Calibration.
 If you are using D435i's IMU, you have an extra step to do: calibrate IMU and write the data into the camera device. It's very easy and important. You just need to follow the official instruction [PDF](https://www.intelrealsense.com/wp-content/uploads/2019/07/Intel_RealSense_Depth_D435i_IMU_Calibration.pdf).
@@ -121,3 +121,6 @@ Camera-IMU calibration (monocular/color):
 ```
 rosrun kalibr kalibr_calibrate_imu_camera --bag color_calibration.bag --cam camera_calibration_result/camchain-camera_calibration.yaml --imu imu_calibration_result/imu.yaml --target apriltag.yaml --bag-from-to 5 105
 ```
+You should see a very small reprojection error (<1.0):
+
+![Screenshot from 2022-04-10 16-05-02](https://user-images.githubusercontent.com/55560905/162637675-5df47c85-e63f-486e-89a4-3f4bba91fe26.png)
