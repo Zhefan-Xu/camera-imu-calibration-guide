@@ -83,7 +83,9 @@ After this step, you should get the camera intrinsic and extrinsic parameters.
 If you are using D435i's IMU, you have an extra step to do: calibrate IMU and write the data into the camera device. It's very easy and important. You just need to follow the official instruction [PDF](https://www.intelrealsense.com/wp-content/uploads/2019/07/Intel_RealSense_Depth_D435i_IMU_Calibration.pdf).
 Necessary tools and code can be found on [librealsense github](https://github.com/IntelRealSense/librealsense).
 
-Now, we need to estimate xxx for IMU:
+#### 6. Estimate IMU Noise Model.
+Now, we need to estimate noise model for IMU. You can find some explanation of the parameters [here](https://github.com/ethz-asl/kalibr/wiki/IMU-Noise-Model).
+Use the repo [imu_utils](https://github.com/gaowenliang/imu_utils) which depends on [code_utils](https://github.com/gaowenliang/code_utils) to obtain the IMU noise model.
 
 
 #### 6. Camera-IMU Calibration.
