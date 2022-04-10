@@ -1,6 +1,6 @@
 # Camera-IMU Calibration Guide
 ## I. Basics of Camera Calibration:
-Camera calibration is a process to find the camera intrinsic, extrinsic, and distortion parameters of a specific camera. It is very important in the multiple-camera and camera-IMU (visual inertial) system.  
+Camera calibration is a process to find the camera intrinsic, extrinsic, and distortion parameters of a specific camera or cameras. It is very important in the multiple-camera and camera-IMU (visual inertial) system.  
 
 #### a. Camera Teminology:
  - **Intrinsic Matrix**: The matrix that transform 3D points from camera 3D coordinate frame to 2D image plane. Parameters (focal length, offset): fx, fy, px, py.
