@@ -87,10 +87,19 @@ Necessary tools and code can be found on [librealsense github](https://github.co
 Now, we need to estimate noise model for IMU. You can find some explanation of the parameters [here](https://github.com/ethz-asl/kalibr/wiki/IMU-Noise-Model).
 Use the repo [imu_utils](https://github.com/gaowenliang/imu_utils) which depends on [code_utils](https://github.com/gaowenliang/code_utils) to obtain the IMU noise model.
 
+First, record the IMU data for more than 10 minutes while making it stationary. Then, Please refer to the launch file [here](https://github.com/Zhefan-Xu/camera-imu-calibration-guide/blob/main/d435i_imu_calibration.launch) to run the esimation process. Finally, play the rosbag file and it will start estimation.
+
+Save the obtained data into this [format](https://github.com/Zhefan-Xu/camera-imu-calibration-guide/blob/main/imu.yaml).
+ 
 
 #### 6. Camera-IMU Calibration.
-
-Camera-IMU calibration:
+Finally, we can perform the calibration (This step will take several hours).
+Camera-IMU calibration (stereo):
 ```
-rosrun kalibr kalibr_calibrate_imu_camera --bag calibration.bag --cam camera_calibration_result/camchain-camera_calibration.yaml --imu imu_calibration_result/imu.yaml --target apriltag.yaml --bag-from-to 5 105
+rosrun kalibr kalibr_calibrate_imu_camera --bag steoreo_calibration.bag --cam camera_calibration_result/camchain-camera_calibration.yaml --imu imu_calibration_result/imu.yaml --target apriltag.yaml --bag-from-to 5 105
+```
+
+Camera-IMU calibration (monocular/color):
+```
+rosrun kalibr kalibr_calibrate_imu_camera --bag color_calibration.bag --cam camera_calibration_result/camchain-camera_calibration.yaml --imu imu_calibration_result/imu.yaml --target apriltag.yaml --bag-from-to 5 105
 ```
