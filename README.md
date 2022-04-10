@@ -42,14 +42,18 @@ Print this pdf with its actual size and write its parameters into this [format](
 #### 3. Record rosbag for camera intrinstic and extrinsic calibration at 4-5 Hz.
 Take [Intel Realsense D435i](https://www.intelrealsense.com/depth-camera-d435i/) as an example:
 
-If you want to calibrate its stereo camera: 
+If you want to calibrate its stereo camera, you need to launch the camera with infrared stereo images (but please turn off the Infrared Projector). Also remember to resize the image size to 640x480. You can find the modified launch file [here](https://github.com/Zhefan-Xu/camera-imu-calibration-guide/blob/main/rs_d435i.launch): 
 ```
 roslaunch realsense2_camera rs_d435i.launch # check the launch file in this repo, you will need to turn off the projector and also ajust the image resolution.
-
+```
+Since the frequency of published images is 30Hz, we need to throttle it into 4-5 Hz. Othersize it will be very slow for calibration.
+```
 # we need to throttle message frequency to 4-5 Hz
 rosrun topic_tools throttle messages /camera/infra1/image_rect_raw 5.0 /camera1 # throttle image1 frequency and republish in /camera1
 rosrun topic_tools throttle messages /camera/infra2/image_rect_raw 5.0 /camera1 # throttle image2 frequency and republish in /camera2
-
+```
+Record rosbag by running the following command:
+```
 # start recording
 rosbag record -O stereo_camera_calibration.bag /camera1 /camera2
 ```
