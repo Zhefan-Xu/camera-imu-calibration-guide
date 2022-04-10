@@ -26,12 +26,14 @@ Camera calibration is a process to find the camera intrinsic, extrinsic, and dis
  - **Multiple-camera calibration**: In addition to instrinsic and distortion, we also want to obtain extrinsic matrix.
  - **Camera-IMU calibration**: Find the transformation between camera and IMU.
 
+#### d. Camera Model:
+ TODO
 
 ## II. Calibration Guide (Camera-IMU calibration)
 
 #### 1. Install Kalibr from ETH Autonomous System Lab (ASL).
   [Kalibr](https://github.com/ethz-asl/kalibr) is a very useful calibration tool for multiple-camera and camera-IMU calibration. Note: Follow their instructions and build the packages in your Ubuntu 18.04 (ROS Melodic) or Ubuntu 16.04 (ROS Kinetic) system.
-
+Camera Model: your camera lens model.
 #### 2. Generate Calibration Target:
 You can download calibration target anywhere or generate it from [Kalibr](https://github.com/ethz-asl/kalibr) by running:
 ```
