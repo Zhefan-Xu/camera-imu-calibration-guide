@@ -112,10 +112,11 @@ Save the obtained data into this [format](https://github.com/Zhefan-Xu/camera-im
  
 
 #### 7. Camera-IMU Calibration.
+In this step, we need to record a new rosbag with `/camera/imu`, you can use this launch file [here](https://github.com/Zhefan-Xu/camera-imu-calibration-guide/blob/main/record_stereo_calibration_bag.sh), and put camera and imu calibration file under `\camera_calibration_result` and `\imu_calibration_result` respectively.
 Finally, we can perform the calibration (This step will take several hours).
 Camera-IMU calibration (stereo):
 ```
-rosrun kalibr kalibr_calibrate_imu_camera --bag steoreo_calibration.bag --cam camera_calibration_result/camchain-camera_calibration.yaml --imu imu_calibration_result/imu.yaml --target apriltag.yaml --bag-from-to 5 105
+rosrun kalibr kalibr_calibrate_imu_camera --bag stereo_calibration.bag --cam camera_calibration_result/camchain-camera_calibration.yaml --imu imu_calibration_result/imu.yaml --target apriltag.yaml --bag-from-to 5 105
 ```
 
 Camera-IMU calibration (monocular/color):
