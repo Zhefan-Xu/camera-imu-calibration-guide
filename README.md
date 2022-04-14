@@ -35,7 +35,7 @@ Camera calibration is a process to find the camera intrinsic, extrinsic, and dis
 #### 2. Generate Calibration Target:
 You can download calibration target anywhere or generate it from [Kalibr](https://github.com/ethz-asl/kalibr) by running
 ```
-rosrun kalibr kalibr_create_target_pdf --type apriltag --nx 6 --ny 6 --tsize 0.02 --tspace -0.3 # 6x6 apriltag with tag size 0.02m and spacing ratio 0.3.
+rosrun kalibr kalibr_create_target_pdf --type apriltag --nx 6 --ny 6 --tsize 0.02 --tspace 0.3 # 6x6 apriltag with tag size 0.02m and spacing ratio 0.3.
 ```
 Print this pdf with its actual size and write its parameters into this [format](https://github.com/Zhefan-Xu/camera-imu-calibration-guide/blob/main/apriltag.yaml).
 
@@ -58,7 +58,7 @@ Since the frequency of published images is 30Hz, we need to throttle it into 4-5
 ```
 # we need to throttle message frequency to 4-5 Hz
 rosrun topic_tools throttle messages /camera/infra1/image_rect_raw 5.0 /camera1 # throttle image1 frequency and republish in /camera1
-rosrun topic_tools throttle messages /camera/infra2/image_rect_raw 5.0 /camera1 # throttle image2 frequency and republish in /camera2
+rosrun topic_tools throttle messages /camera/infra2/image_rect_raw 5.0 /camera2 # throttle image2 frequency and republish in /camera2
 ```
 Record rosbag by running the following command:
 ```
