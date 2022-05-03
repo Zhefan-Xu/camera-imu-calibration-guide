@@ -1,0 +1,1 @@
+rosbag record -O color_calibration_fc.bag /mavros/imu/data /camera/color/image_raw

@@ -1,0 +1,1 @@
+rosbag record -O imu_calibration.bag /camera/imu
